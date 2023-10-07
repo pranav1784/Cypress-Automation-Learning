@@ -18,6 +18,7 @@ describe("My First Test Suite", function () {
         if (textVeg.includes("Cashews")) {
           cy.wrap($el).find("button").click();
           //comments
+          //comment2
         }
       });
   });
