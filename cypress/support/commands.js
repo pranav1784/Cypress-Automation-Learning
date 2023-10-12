@@ -19,17 +19,19 @@ Cypress.Commands.add("addProduct", (productName) => {
   })
 })
 
-var sum = 0
 Cypress.Commands.add("sumProducts", () => {
-  var sum = 0
+  let sum=0
   cy.get("tr td:nth-child(4) strong").each(($el, index, $list) => {
     const price = $el.text()
-    var price2 = price.split(" ")
-    price2 = price2[1].trim()
-    cy.log(price2)
+    const price2 = parseFloat(price.split(" ")[1].trim());
+    //cy.log(price2)
+
     sum = Number(sum) + Number(price2)
+    
+  }).then(()=>{
+    return sum
   })
-  return sum
+ 
 })
 //
 // -- This is a child command --

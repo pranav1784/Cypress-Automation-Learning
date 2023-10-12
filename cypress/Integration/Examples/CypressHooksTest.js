@@ -24,14 +24,22 @@ describe("My Second Test Suite", function () {
     // cy.pause()
     productpage.getButton().click()
     //var sum =
-    var sum = 0
-    sum = cy.sumProducts()
-    cy.get("td.text-right strong").then(function (a) {
-      var displayedSum = a.text()
-      displayedSum = displayedSum.split(" ")
-      displayedSum = displayedSum[1].trim()
-      expect(displayedSum).to.equal(sum)
-    })
+    
+    cy.sumProducts().then(function(sum){
+     // cy.get("td.text-right strong").then(function (a) {
+        // var displayedSum = a.text()
+        // displayedSum = displayedSum.split(" ")
+        // displayedSum = displayedSum[1].trim()
+        // cy.log(sum)
+        cy.get("td.text-right strong").invoke("text").then((displayedSum) => {
+          displayedSum = parseFloat(displayedSum.split(" ")[1].trim());
+          // cy.log("Total Sum: " + sum)
+          // cy.log("displayed sum: "+displayedSum)
+        expect(displayedSum).to.equal(sum)
+      })
+
+   // })
+    
 
     productpage.getCheckOutButton().click()
     productpage.getCountry().type("india")
@@ -44,4 +52,5 @@ describe("My Second Test Suite", function () {
       expect(alert.includes("Success")).to.to.be.true
     })
   })
+})
 })
