@@ -21,6 +21,27 @@ describe("My Second Test Suite", function () {
     this.data.productName.forEach((element) => {
       cy.addProduct(element)
     })
+    // cy.pause()
     productpage.getButton().click()
+    //var sum =
+    var sum = 0
+    sum = cy.sumProducts()
+    cy.get("td.text-right strong").then(function (a) {
+      var displayedSum = a.text()
+      displayedSum = displayedSum.split(" ")
+      displayedSum = displayedSum[1].trim()
+      expect(displayedSum).to.equal(sum)
+    })
+
+    productpage.getCheckOutButton().click()
+    productpage.getCountry().type("india")
+    // Cypress.config("defaultCommandTimeout", 6000)
+    productpage.selectCountry().click()
+    productpage.selectCheckBox().click({ force: true })
+    productpage.purchaseProduct().click()
+    cy.get(".alert").then(function (text) {
+      const alert = text.text()
+      expect(alert.includes("Success")).to.to.be.true
+    })
   })
 })
