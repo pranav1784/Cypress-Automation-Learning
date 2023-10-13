@@ -9,7 +9,8 @@ describe("My Second Test Suite", function () {
     })
   })
   it("My sixth Test Case", function () {
-    cy.visit("https://rahulshettyacademy.com/angularpractice/")
+    Cypress.env('url')
+    cy.visit(Cypress.env('url')+"/angularpractice/")
     const homepage = new HomePage()
     const productpage = new productPage()
     homepage.getPatientName().type(this.data.name)
