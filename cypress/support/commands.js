@@ -9,7 +9,7 @@
 // ***********************************************
 //
 //
-// -- This is a parent command --
+// -- This is a parent command --  thanks
 // Cypress.Commands.add('login', (email, password) => { ... })
 Cypress.Commands.add("addProduct", (productName) => {
   cy.get("h4.card-title").each(($el, index, $list) => {

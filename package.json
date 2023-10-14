@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dashboardScript":"npx cypress run --record --key ac316508-5d4b-4358-8a85-4c668ac78c7e --spec cypress/Integration/Examples/*.js",
+    "dashboardScriptHeaded":"npm run dashboardScript -- --headed --browser chrome --reporter mochawesome"
+
   },
   "author": "",
   "license": "ISC",

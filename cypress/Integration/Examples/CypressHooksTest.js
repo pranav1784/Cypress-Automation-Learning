@@ -8,6 +8,7 @@ describe("My Second Test Suite", function () {
       this.data = data
     })
   })
+  //samplecomment
   it("My sixth Test Case", function () {
     Cypress.env('url')
     cy.visit(Cypress.env('url')+"/angularpractice/")
