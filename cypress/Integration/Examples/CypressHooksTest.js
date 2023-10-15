@@ -1,6 +1,6 @@
 ///  <reference types="Cypress"/>
 //Test case is called spec in cypress
-import HomePage from "../pageObjects/homepage"
+import HomePage from "../pageObjects/Homepage"
 import productPage from "../pageObjects/ProductPage"
 describe("My Second Test Suite", function () {
   before(function () {

@@ -1,12 +1,13 @@
 /// <reference types="Cypress" />
-import HomePage from "../pageObjects/homepage"
-import productPage from "../pageObjects/ProductPage"
+
+import HomePage from '../../../pageObjects/Homepage'
+import productPage from '../../../pageObjects/ProductPage'
 import { Given,When,Then } from "@badeball/cypress-cucumber-preprocessor";
 //cypress run --spec cypress\integration\examples\BDD\*.feature --headed --browser chrome
 //npx cypress-tags run -e TAGS="@Smoke" --headed --browser chrome
 // npx cypress run --spec cypress/integration/examples/BDD/*.feature --headed --browser chrome --env url="https://google.com"
-const homePage=new HomePage()
-const productPage=new ProductPage()
+const homepage = new HomePage()
+    const productpage = new productPage()
 let name
 Given('I open ECommerce Page',()=>
 {
@@ -73,7 +74,7 @@ When('Validate the total prices',()=>
     // Then validate the forms behaviour
     Then('validate the forms behaviour',function()
     {
-        homepage.getBindTextfield().should("have.value", dataTable.rawTable[1][0])
+        homepage.getBindTextfield().should("have.value", name)
         homepage.getPatientName().should("have.attr", "minlength", "2")
         cy.get("input#inlineRadio3").should("be.disabled")
     Cypress.config('defaultCommandTimeout', 8000)
