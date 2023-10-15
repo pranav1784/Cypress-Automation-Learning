@@ -23,6 +23,7 @@ describe("My Second Test Suite", function () {
     this.data.productName.forEach((element) => {
       cy.addProduct(element)
     })
+   
     // cy.pause()
     productpage.getButton().click()
     //var sum =
