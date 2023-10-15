@@ -3,9 +3,6 @@
 import HomePage from '../../../pageObjects/Homepage'
 import productPage from '../../../pageObjects/ProductPage'
 import { Given,When,Then } from "@badeball/cypress-cucumber-preprocessor";
-//cypress run --spec cypress\integration\examples\BDD\*.feature --headed --browser chrome
-//npx cypress-tags run -e TAGS="@Smoke" --headed --browser chrome
-// npx cypress run --spec cypress/integration/examples/BDD/*.feature --headed --browser chrome --env url="https://google.com"
 const homepage = new HomePage()
     const productpage = new productPage()
 let name
@@ -32,17 +29,12 @@ When('I add items to Cart',function ()
 When('Validate the total prices',()=>
 {
     cy.sumProducts().then(function (sum) {
-        // cy.get("td.text-right strong").then(function (a) {
-        // var displayedSum = a.text()
-        // displayedSum = displayedSum.split(" ")
-        // displayedSum = displayedSum[1].trim()
-        // cy.log(sum)
+        
         cy.get("td.text-right strong")
           .invoke("text")
           .then((displayedSum) => {
             displayedSum = parseFloat(displayedSum.split(" ")[1].trim())
-            // cy.log("Total Sum: " + sum)
-            // cy.log("displayed sum: "+displayedSum)
+            
             expect(displayedSum).to.equal(sum)
        }) 
     })
@@ -53,7 +45,7 @@ When('Validate the total prices',()=>
     {
         productpage.getCheckOutButton().click()
       productpage.getCountry().type("india")
-      // Cypress.config("defaultCommandTimeout", 6000)
+
       productpage.selectCountry().click()
       productpage.selectCheckBox().click({ force: true })
       productpage.purchaseProduct().click()
