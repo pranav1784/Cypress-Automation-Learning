@@ -34,7 +34,7 @@ Cypress.Commands.add("sumProducts", () => {
  
 })
 Cypress.Commands.add("LoginFunction",()=>{
-  cy.request("POST","https://rahulshettyacademy.com/client",{"userEmail":"pranav@nomail.com","userPassword":"Pranav@2000"}
+  cy.request("POST","https://rahulshettyacademy.com/api/ecom/auth/login",{"userEmail":"pranav@nomail.com","userPassword":"Pranav@2000"}
   ).then(function(response){
     expect(response.status).to.eq(200)
     Cypress.env('token',response.body.token)
