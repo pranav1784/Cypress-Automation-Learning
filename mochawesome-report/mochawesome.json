@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-10-17T05:57:24.749Z",
+    "end": "2023-10-17T05:57:27.475Z",
+    "duration": 2726,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "44a2c15d-7c03-4c4d-acbc-c8cd92d2153c",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\sessionTest.js",
+      "file": "cypress\\integration\\examples\\sessionTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f458d11f-e5c4-4755-8a39-31cccfd62b52",
+          "title": "My Session Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Session Test Case",
+              "fullTitle": "My Session Test Suite Session Test Case",
+              "timedOut": null,
+              "duration": 785,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.LoginFunction().then(function () {\n  cy.visit('https://rahulshettyacademy.com/client', {\n    onBeforeLoad: function onBeforeLoad(window) {\n      window.localStorage.setItem('token', Cypress.env('token'));\n    }\n  });\n});",
+              "err": {},
+              "uuid": "ae94df69-41e5-4671-9fb1-73719a0aad55",
+              "parentUUID": "f458d11f-e5c4-4755-8a39-31cccfd62b52",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ae94df69-41e5-4671-9fb1-73719a0aad55"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 785,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
