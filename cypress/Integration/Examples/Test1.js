@@ -6,7 +6,8 @@ describe("My First Test Suite", function () {
     cy.get(".search-keyword").type("ca")
     cy.wait(2000)
     cy.get(".product:visible").should("have.length", 4)
-
+    // cy.get(".product:hidden").invoke("visible")
+    //  cy.get(".product:visible").should("have.length", 5)
     //parent child chaining
     cy.get(".products").as("ProductsCatalog")
     cy.get("@ProductsCatalog").find(".product").should("have.length", 4)
