@@ -1,7 +1,7 @@
 import productPage from "./ProductPage"
 
 class HomePage {
-  getPatientName() {
+  static getPatientName() {
     return cy.get("input[name='name']:nth-child(2)")
   }
   getGender() {
