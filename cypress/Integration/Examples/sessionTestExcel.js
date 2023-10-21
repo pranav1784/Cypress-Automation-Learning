@@ -1,6 +1,7 @@
 const neatCsv = require("neat-csv")
 const excelToJson = require("convert-excel-to-json")
 const fs = require("fs")
+const exp = require("constants")
 describe("My Session Test Suite", () => {
   it("Session Test Case", () => {
     cy.LoginFunction().then(() => {
@@ -45,12 +46,23 @@ describe("My Session Test Suite", () => {
     cy.get(".action__submit").click()
     cy.wait(2000)
     cy.contains("Excel").click()
-    const fileName = Cypress.config("fileServerFolder")
-    const result = excelToJson({
-      source: fs.readFileSync(
-        fileName + "/cypress/downloads/order-invoice_pranav.xlsx"
-      ), // fs.readFileSync return a Buffer
+    const fileName = Cypress.config("fileServerFolder")+"/cypress/downloads/order-invoice_pranav.xlsx"
+
+  // As cypress runs on frontend, when we use methods such as fs to read the file then it is not known by cypress and error comes
+  // this is not a function, to overcome that cypress introduced task method, to do task that belong to backend
+  // so for that moment, javascri[t cpde is run in backend then after task is over it again switches to frontend
+  //All tasks needs to be defined in cypress.config.js file
+
+    cy.task('excelJsonConvertor',fileName).then((result)=>{
+      cy.log(result.data[1].A)
+      expect(actualProductName).to.equal(result.data[1].B)
+
     })
-    console.log(result)
+
+    cy.readFile(fileName).then((text)=>{
+      expect(text).to.include(actualProductName)
+
+    })
+    
   })
 })
